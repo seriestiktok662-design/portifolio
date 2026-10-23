@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Davi Figueiredo Fonseca | Portfólio Dev</title>
+
+  <!-- Importação do Google Fonts (Poppins e Fira Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Importação dos Ícones do Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Arquivo de Estilos CSS Externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="tema-escuro">
+
+  <!-- Fundo Interativo em Canvas -->
+  <canvas id="particulas-fundo"></canvas>
+
+  <!-- Cabeçalho / Menu de Navegação -->
+  <header class="cabecalho">
+    <div class="conteiner cabecalho-conteudo">
+      <a href="#inicio" class="logotipo">
+        <span class="icone-codigo">&lt;/&gt;</span> DAVI<span class="ponto-destaque">.</span>DEV
+      </a>
+
+      <!-- Botão Hambúrguer para Mobile -->
+      <button id="botao-menu-mobile" class="botao-menu-mobile" aria-label="Abrir menu de navegação">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <nav id="navegacao-principal" class="navegacao">
+        <ul class="lista-navegacao">
+          <li><a href="#inicio" class="link-navegacao ativo">Início</a></li>
+          <li><a href="#sobre" class="link-navegacao">Sobre Mim</a></li>
+          <li><a href="#habilidades" class="link-navegacao">Habilidades</a></li>
+          <li><a href="#educacao" class="link-navegacao">Educação</a></li>
+          <li><a href="#portfolio" class="link-navegacao">Portfólio</a></li>
+          <li><a href="#contato" class="link-navegacao">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botão para Alternar entre Dark e Light Mode -->
+      <button id="botao-tema" class="botao-alternar-tema" aria-label="Alternar tema de cores">
+        <i class="bi bi-moon-stars-fill icone-lua"></i>
+        <i class="bi bi-sun-fill icone-sol"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Seção Hero (Apresentação Principal) -->
+    <section id="inicio" class="secao-hero">
+      <div class="conteiner hero-conteudo">
+        <div class="selo-status">
+          <span class="indicador-online"></span> Disponível para novos projetos
+        </div>
+        
+        <h1 class="titulo-principal">
+          Olá, eu sou <br>
+          <span class="nome-destaque">Davi Figueiredo Fonseca</span>
+        </h1>
+
+        <!-- Efeito Máquina de Escrever em JS -->
+        <h2 class="subtitulo-maquina">
+          <span id="texto-maquina"></span><span class="cursor-piscando">|</span>
+        </h2>
+
+        <p class="descricao-hero">
+          Estudante de Informática para Internet focado no desenvolvimento de interfaces web modernas, 
+          responsivas e intuitivas.
+        </p>
+
+        <div class="acoes-hero">
+          <a href="curriculo.pdf.pdf" download class="botao-primario">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i> Baixar meu CV
+          </a>
+          <a href="#contato" class="botao-secundario">
+            <i class="bi bi-chat-dots-fill"></i> Vamos Conversar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre" class="secao secao-revelar">
+      <div class="conteiner">
+        <h2 class="titulo-secao"><i class="bi bi-person-badge"></i> Sobre Mim</h2>
+        <div class="card-glass flex-sobre">
+          <div class="avatar-conteiner">
+            <div class="moldura-avatar">
+              <i class="bi bi-code-slash icone-avatar"></i>
+            </div>
+          </div>
+          <div class="texto-sobre">
+            <p>
+              Sou estudante do 1º ano do Ensino Médio Técnico em Informática para Internet pela 
+              <strong>SESC Escola</strong>, em parceria com o <strong>SENAC</strong>[cite: 1, 5]. Com forte foco em programação, iniciei minha trilha de aprendizado me especializando em desenvolvimento Front-end[cite: 1, 5].
+            </p>
+            <p>
+              Nos próximos anos, minha formação se expandirá para o Back-end (2º ano) e desenvolvimento Mobile (3º ano), construindo uma base sólida para me tornar um Desenvolvedor Full Stack[cite: 1, 5].
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Habilidades -->
+    <section id="habilidades" class="secao secao-revelar">
+      <div class="conteiner">
+        <h2 class="titulo-secao"><i class="bi bi-tools"></i> Minhas Habilidades</h2>
+        <div class="grade-habilidades">
+          <div class="card-habilidade">
+            <i class="bi bi-filetype-html icone-hab html"></i>
+            <h3>HTML5</h3>
+            <span class="badge-hab">Estruturação Semântica</span>
+          </div>
+          <div class="card-habilidade">
+            <i class="bi bi-filetype-css icone-hab css"></i>
+            <h3>CSS3</h3>
+            <span class="badge-hab">Estilização & Responsividade</span>
+          </div>
+          <div class="card-habilidade">
+            <i class="bi bi-filetype-js icone-hab js"></i>
+            <h3>JavaScript</h3>
+            <span class="badge-hab">Lógica & Dinamismo</span>
+          </div>
+          <div class="card-habilidade">
+            <i class="bi bi-cpu icone-hab logica"></i>
+            <h3>Lógica de Programação</h3>
+            <span class="badge-hab">Resolução de Algoritmos</span>
+          </div>
+          <div class="card-habilidade">
+            <i class="bi bi-git icone-hab git"></i>
+            <h3>Git</h3>
+            <span class="badge-hab">Controle de Versão</span>
+          </div>
+          <div class="card-habilidade">
+            <i class="bi bi-github icone-hab github"></i>
+            <h3>GitHub</h3>
+            <span class="badge-hab">Projetos & Repositórios</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Educação & Roadmap (Opção 1) -->
+    <section id="educacao" class="secao secao-revelar">
+      <div class="conteiner">
+        <h2 class="titulo-secao"><i class="bi bi-journal-bookmark-fill"></i> Educação & Roadmap</h2>
+        
+        <div class="card-glass card-educacao-principal">
+          <div class="cabecalho-instituicao">
+            <div>
+              <h3>Ensino Médio Integrado ao Técnico em Informática para Internet</h3>
+              <p class="instituicao">SESC ESCOLA & SENAC <span class="selo-excelencia"><i class="bi bi-patch-check-fill"></i> Excelência Técnica</span></p>
+            </div>
+            <span class="tag-conclusao"><i class="bi bi-calendar-event"></i> Conclusão: 2026</span>
+          </div>
+
+          <!-- Linha do Tempo / Roadmap de 3 Etapas -->
+          <div class="roadmap-linha-tempo">
+            <div class="etapa-roadmap em-andamento">
+              <div class="marcador-etapa"><i class="bi bi-laptop"></i></div>
+              <div class="conteudo-etapa">
+                <span class="tag-status">1º Ano — Atual / Em Andamento</span>
+                <h4>Módulo Front-end</h4>
+                <p>Especialização em desenvolvimento web visual com HTML5, CSS3, JavaScript Vanilla e lógica de programação.</p>
+              </div>
+            </div>
+
+            <div class="etapa-roadmap futuro">
+              <div class="marcador-etapa"><i class="bi bi-server"></i></div>
+              <div class="conteudo-etapa">
+                <span class="tag-status">2º Ano — Próximo Passo</span>
+                <h4>Módulo Back-end</h4>
+                <p>Estruturação de bancos de dados, criação de APIs e servidores com regras de negócio avançadas.</p>
+              </div>
+            </div>
+
+            <div class="etapa-roadmap futuro">
+              <div class="marcador-etapa"><i class="bi bi-phone"></i></div>
+              <div class="conteudo-etapa">
+                <span class="tag-status">3º Ano — Futuro</span>
+                <h4>Módulo Mobile</h4>
+                <p>Desenvolvimento de aplicações para dispositivos móveis, consolidando a formação Full Stack.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Portfólio & Projetos -->
+    <section id="portfolio" class="secao secao-revelar">
+      <div class="conteiner">
+        <h2 class="titulo-secao"><i class="bi bi-folder-fill"></i> Meu Portfólio e Estudos</h2>
+
+        <!-- Subseção A: Projetos de Destaque -->
+        <h3 class="subtitulo-secao"><i class="bi bi-star-fill"></i> Projetos de Destaque</h3>
+        <div class="grade-projetos">
+          <!-- Projeto 1: Robô Maker -->
+          <article class="card-projeto">
+            <div class="imagem-projeto-placeholder">
+              <i class="bi bi-robot"></i>
+            </div>
+            <div class="conteudo-projeto">
+              <h3>Robô Maker</h3>
+              <p>Aplicação desenvolvida nas aulas de lógica de programação.</p>
+              <div class="tags-tecnologias">
+                <span>HTML</span><span>CSS</span>
+              </div>
+              <div class="links-projeto">
+                <a href="https://seriestiktok662-design.github.io/projeto-robomaker/" target="_blank" class="link-botao-p"><i class="bi bi-globe"></i> Ver Site</a>
+                <a href="https://github.com/seriestiktok662-design/projeto-robomaker" target="_blank" class="link-botao-p secundario"><i class="bi bi-github"></i> Repositório</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 2: Compasso Musical -->
+          <article class="card-projeto">
+            <div class="imagem-projeto-placeholder">
+              <i class="bi bi-music-note-list"></i>
+            </div>
+            <div class="conteudo-projeto">
+              <h3>Compasso Musical</h3>
+              <p>Um site feito de atalho para compras de instrumentos.</p>
+              <div class="tags-tecnologias">
+                <span>HTML</span><span>CSS</span>
+              </div>
+              <div class="links-projeto">
+                <a href="https://seriestiktok662-design.github.io/compasso-musical/" target="_blank" class="link-botao-p"><i class="bi bi-globe"></i> Ver Site</a>
+                <a href="https://github.com/seriestiktok662-design/compasso-musical" target="_blank" class="link-botao-p secundario"><i class="bi bi-github"></i> Repositório</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Subseção B: Repositórios de Estudo -->
+        <h3 class="subtitulo-secao espaco-topo"><i class="bi bi-code-square"></i> Repositórios de Estudo</h3>
+        <div class="grade-estudos">
+          <a href="https://github.com/seriestiktok662-design/html" target="_blank" class="card-estudo">
+            <i class="bi bi-filetype-html icone-estudo"></i>
+            <div>
+              <h4>Trilha de HTML e CSS</h4>
+              <p>Exercícios, estruturas semânticas e estilização em CSS3.</p>
+            </div>
+            <i class="bi bi-box-arrow-up-right seta-link"></i>
+          </a>
+
+          <a href="https://github.com/seriestiktok662-design/JavaScript" target="_blank" class="card-estudo">
+            <i class="bi bi-filetype-js icone-estudo"></i>
+            <div>
+              <h4>Trilha de JavaScript Vanilla</h4>
+              <p>Manipulação de DOM, funções e algoritmos dinâmicos.</p>
+            </div>
+            <i class="bi bi-box-arrow-up-right seta-link"></i>
+          </a>
+
+          <a href="https://github.com/seriestiktok662-design/algoritmos" target="_blank" class="card-estudo">
+            <i class="bi bi-diagram-3 icone-estudo"></i>
+            <div>
+              <h4>Lógica de Programação e Algoritmos</h4>
+              <p>Exercícios de raciocínio lógico desenvolvidos em Portugol.</p>
+            </div>
+            <i class="bi bi-box-arrow-up-right seta-link"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Contato / Redes Sociais -->
+    <section id="contato" class="secao secao-revelar">
+      <div class="conteiner">
+        <h2 class="titulo-secao"><i class="bi bi-chat-heart-fill"></i> Vamos Conversar?</h2>
+        <p class="subtitulo-centralizado">Clique abaixo para entrar em contato ou visualizar meu perfil nas redes!</p>
+
+        <div class="grade-contatos">
+          <!-- WhatsApp -->
+          <a href="https://api.whatsapp.com/" target="_blank" class="card-contato whatsapp">
+            <i class="bi bi-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/" target="_blank" class="card-contato linkedin">
+            <i class="bi bi-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/dashboard" target="_blank" class="card-contato github">
+            <i class="bi bi-github"></i>
+            <span>GitHub</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/?hl=en" target="_blank" class="card-contato instagram">
+            <i class="bi bi-instagram"></i>
+            <span>Instagram</span>
+          </a>
+
+          <!-- E-mail -->
+          <a href="https://mail.google.com/mail/u/0/?ogbl#inbox" target="_blank" class="card-contato email">
+            <i class="bi bi-envelope-at-fill"></i>
+            <span>E-mail</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="conteiner rodape-conteudo">
+      <p>Copyright © <span id="ano-atual"></span> | Todos os direitos reservados.</p>
+      <p>Desenvolvido com <i class="bi bi-suit-heart-fill icone-coracao"></i> por <strong>Davi Figueiredo Fonseca</strong></p>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante Voltar ao Topo -->
+  <button id="botao-topo" class="botao-voltar-topo" aria-label="Voltar ao topo da página">
+    <i class="bi bi-arrow-up-short"></i>
+  </button>
+
+  <!-- Script JS Externo -->
+  <script src="script.js"></script>
+</body>
+</html>

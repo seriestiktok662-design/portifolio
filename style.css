@@ -1,0 +1,744 @@
+/* ==========================================================================
+   VARIAVEIS E ESTILOS DE TEMA (DARK / LIGHT MODE)
+   ========================================================================== */
+:root {
+  /* Tema Escuro (Padrão) */
+  --cor-fundo: #090d16;
+  --cor-fundo-card: rgba(18, 26, 43, 0.75);
+  --cor-borda-card: rgba(0, 240, 255, 0.15);
+  --cor-texto: #e2e8f0;
+  --cor-texto-secundario: #94a3b8;
+  --cor-primaria: #00f0ff;
+  --cor-secundaria: #7000ff;
+  --cor-destaque: #ff007a;
+  --cor-cabecalho: rgba(9, 13, 22, 0.85);
+  --sombra-neon: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+body.tema-claro {
+  /* Tema Claro */
+  --cor-fundo: #f4f7fb;
+  --cor-fundo-card: rgba(255, 255, 255, 0.85);
+  --cor-borda-card: rgba(13, 110, 253, 0.2);
+  --cor-texto: #1e293b;
+  --cor-texto-secundario: #64748b;
+  --cor-primaria: #0d6efd;
+  --cor-secundaria: #6610f2;
+  --cor-destaque: #d63384;
+  --cor-cabecalho: rgba(244, 247, 251, 0.85);
+  --sombra-neon: 0 10px 25px rgba(13, 110, 253, 0.15);
+}
+
+/* Reset Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Personalização da Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cor-fundo);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cor-primaria);
+  border-radius: 5px;
+}
+
+/* Canvas de Partículas */
+#particulas-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Conteineres e Estrutura */
+.conteiner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.secao {
+  padding: 100px 0 40px;
+}
+
+.titulo-secao {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: var(--cor-primaria);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+}
+
+.subtitulo-secao {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.espaco-topo {
+  margin-top: 3.5rem;
+}
+
+.subtitulo-centralizado {
+  text-align: center;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 2.5rem;
+}
+
+.card-glass {
+  background: var(--cor-fundo-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--cor-borda-card);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--sombra-neon);
+}
+
+/* ==========================================================================
+   CABECALHO
+   ========================================================================== */
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--cor-cabecalho);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cor-borda-card);
+}
+
+.cabecalho-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logotipo {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.icone-codigo { color: var(--cor-primaria); }
+.ponto-destaque { color: var(--cor-destaque); }
+
+.lista-navegacao {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.link-navegacao {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.link-navegacao:hover,
+.link-navegacao.ativo {
+  color: var(--cor-primaria);
+}
+
+.botao-alternar-tema {
+  background: transparent;
+  border: 1px solid var(--cor-borda-card);
+  color: var(--cor-primaria);
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.botao-alternar-tema:hover {
+  transform: scale(1.1);
+}
+
+.icone-sol { display: none; }
+body.tema-claro .icone-sol { display: inline-block; }
+body.tema-claro .icone-lua { display: none; }
+
+.botao-menu-mobile {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--cor-texto);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.secao-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.selo-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--cor-primaria);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--cor-primaria);
+  margin-bottom: 1.5rem;
+}
+
+.indicador-online {
+  width: 8px;
+  height: 8px;
+  background-color: #00ff66;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff66;
+}
+
+.titulo-principal {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.nome-destaque {
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-secundaria));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitulo-maquina {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin-bottom: 1.5rem;
+  min-height: 2.2rem;
+}
+
+.cursor-piscando {
+  animation: piscar 0.8s infinite;
+}
+
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.descricao-hero {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+}
+
+.acoes-hero {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.botao-primario, .botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.botao-primario {
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  color: #fff;
+  box-shadow: var(--sombra-neon);
+}
+
+.botao-primario:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+}
+
+.botao-secundario {
+  background: transparent;
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda-card);
+}
+
+.botao-secundario:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   SOBRE MIM
+   ========================================================================== */
+.flex-sobre {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.moldura-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-neon);
+}
+
+.icone-avatar {
+  font-size: 4rem;
+  color: #fff;
+}
+
+.texto-sobre p {
+  margin-bottom: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   HABILIDADES
+   ========================================================================== */
+.grade-habilidades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card-habilidade {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda-card);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card-habilidade:hover {
+  transform: translateY(-6px);
+  border-color: var(--cor-primaria);
+  box-shadow: var(--sombra-neon);
+}
+
+.icone-hab {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.icone-hab.html { color: #e34f26; }
+.icone-hab.css { color: #1572b6; }
+.icone-hab.js { color: #f7df1e; }
+.icone-hab.logica { color: var(--cor-primaria); }
+.icone-hab.git { color: #f05032; }
+.icone-hab.github { color: var(--cor-texto); }
+
+.badge-hab {
+  font-size: 0.8rem;
+  color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   EDUCACAO & ROADMAP
+   ========================================================================== */
+.cabecalho-instituicao {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--cor-borda-card);
+  padding-bottom: 1.2rem;
+}
+
+.instituicao {
+  color: var(--cor-texto-secundario);
+  margin-top: 0.3rem;
+}
+
+.selo-excelencia {
+  color: var(--cor-primaria);
+  font-size: 0.85rem;
+  margin-left: 8px;
+}
+
+.tag-conclusao {
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--cor-primaria);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.roadmap-linha-tempo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.roadmap-linha-tempo::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--cor-borda-card);
+}
+
+.etapa-roadmap {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.marcador-etapa {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-borda-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.etapa-roadmap.em-andamento .marcador-etapa {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+  box-shadow: var(--sombra-neon);
+}
+
+.tag-status {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.conteudo-etapa h4 {
+  font-size: 1.1rem;
+  margin: 2px 0;
+}
+
+.conteudo-etapa p {
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   PORTFOLIO E PROJETOS
+   ========================================================================== */
+.grade-projetos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+}
+
+.card-projeto {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-projeto:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-neon);
+  border-color: var(--cor-primaria);
+}
+
+.imagem-projeto-placeholder {
+  height: 150px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(112, 0, 255, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: var(--cor-primaria);
+}
+
+.conteudo-projeto {
+  padding: 1.5rem;
+}
+
+.conteudo-projeto h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.conteudo-projeto p {
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.tags-tecnologias {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.2rem;
+}
+
+.tags-tecnologias span {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cor-borda-card);
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: var(--cor-primaria);
+}
+
+.links-projeto {
+  display: flex;
+  gap: 10px;
+}
+
+.link-botao-p {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 6px;
+  background: var(--cor-primaria);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: opacity 0.3s;
+}
+
+.link-botao-p.secundario {
+  background: transparent;
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda-card);
+}
+
+.link-botao-p:hover {
+  opacity: 0.85;
+}
+
+/* Repositórios de Estudo */
+.grade-estudos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card-estudo {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda-card);
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--cor-texto);
+  transition: all 0.3s ease;
+}
+
+.card-estudo:hover {
+  border-color: var(--cor-primaria);
+  transform: translateX(5px);
+}
+
+.icone-estudo {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+}
+
+.seta-link {
+  margin-left: auto;
+  color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   REDES SOCIAIS E CONTATO
+   ========================================================================== */
+.grade-contatos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+}
+
+.card-contato {
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda-card);
+  border-radius: 14px;
+  padding: 1.8rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+.card-contato i {
+  font-size: 2.2rem;
+}
+
+/* Hovers Específicos */
+.card-contato.whatsapp:hover {
+  border-color: #25d366;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+  color: #25d366;
+  transform: translateY(-5px);
+}
+
+.card-contato.linkedin:hover {
+  border-color: #0a66c2;
+  box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
+  color: #0a66c2;
+  transform: translateY(-5px);
+}
+
+.card-contato.github:hover {
+  border-color: #a855f7;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+  color: #a855f7;
+  transform: translateY(-5px);
+}
+
+.card-contato.instagram:hover {
+  border-color: #e1306c;
+  box-shadow: 0 0 20px rgba(225, 48, 108, 0.4);
+  color: #e1306c;
+  transform: translateY(-5px);
+}
+
+.card-contato.email:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  color: #00f0ff;
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   RODAPE & BOTÃO VOLTAR AO TOPO
+   ========================================================================== */
+.rodape {
+  border-top: 1px solid var(--cor-borda-card);
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  text-align: center;
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+}
+
+.icone-coracao {
+  color: #ff0055;
+}
+
+.botao-voltar-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--cor-primaria);
+  color: #000;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.botao-voltar-topo.visivel {
+  opacity: 1;
+  visibility: visible;
+}
+
+.secao-revelar {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.secao-revelar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .grade-habilidades, .grade-estudos { grid-template-columns: repeat(2, 1fr); }
+  .grade-contatos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .botao-menu-mobile { display: block; }
+  .navegacao {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: var(--cor-fundo);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    transition: left 0.4s ease;
+  }
+  .navegacao.ativo { left: 0; }
+  .lista-navegacao { flex-direction: column; align-items: center; gap: 2rem; }
+  .flex-sobre { flex-direction: column; text-align: center; }
+  .grade-habilidades, .grade-projetos, .grade-estudos, .grade-contatos { grid-template-columns: 1fr; }
+  .titulo-principal { font-size: 2.2rem; }
+  .cabecalho-instituicao { flex-direction: column; gap: 1rem; }
+}
