@@ -602,9 +602,14 @@ body.tema-claro .icone-lua { display: none; }
    REDES SOCIAIS E CONTATO
    ========================================================================== */
 .grade-contatos {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grade-contatos a{
+  width: 50%;
+  margin-left: 20px;
 }
 
 .card-contato {
@@ -627,6 +632,7 @@ body.tema-claro .icone-lua { display: none; }
 }
 
 /* Hovers Específicos */
+
 .card-contato.whatsapp:hover {
   border-color: #25d366;
   box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
@@ -634,24 +640,10 @@ body.tema-claro .icone-lua { display: none; }
   transform: translateY(-5px);
 }
 
-.card-contato.linkedin:hover {
-  border-color: #0a66c2;
-  box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
-  color: #0a66c2;
-  transform: translateY(-5px);
-}
-
 .card-contato.github:hover {
   border-color: #a855f7;
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
   color: #a855f7;
-  transform: translateY(-5px);
-}
-
-.card-contato.instagram:hover {
-  border-color: #e1306c;
-  box-shadow: 0 0 20px rgba(225, 48, 108, 0.4);
-  color: #e1306c;
   transform: translateY(-5px);
 }
 
